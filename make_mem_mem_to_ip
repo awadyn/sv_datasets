@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir -p mem_mem_ip_tuples
+
+cd sv_traces/
+
+for file in $(ls);
+do ../record_mem_mem_ip ${file};
+# zip right away
+for output_file in $(ls *[0-9][\_]*);
+do gzip ${output_file};
+done;
+# finish zip
+# move files right away
+mv *[0-9][\_]*  ../mem_mem_ip_tuples;
+done
+
+
+cd ../
