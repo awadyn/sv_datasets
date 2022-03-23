@@ -1,0 +1,17 @@
+Terminal A:
+-----------
+user@userPC$	ssh pt
+psml@pt$ 	jupyter notebook --no-browser --port=8080
+
+
+Terminal B:
+-----------
+user@userPC$	ssh -L 8080:localhost:8080 psml@pt
+
+--> creates a connection to jump server pt
+--> forwards any connection to local port 8080 (on user@userPC) to remote port 8080 (on psml@pt)
+--> i.e. forwards browser connection to localhost:8080 to psml@pt via remote port 8080
+
+Browser:
+--------
+goto url: localhost:8080
